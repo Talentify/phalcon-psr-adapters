@@ -8,14 +8,22 @@ error_reporting(E_ALL);
 include_once __DIR__ . '/../vendor/autoload.php';
 
 use Phalcon\Di\FactoryDefault;
+use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Mvc\Application as MvcApplication;
 use Phalcon\Mvc\Dispatcher as MvcDispatcher;
 use Phalcon\Cli\Console as CliApplication;
 use Phalcon\Cli\Dispatcher as CliDispatcher;
+use PhalconAdapters\Http\ResponseConverter;
 
 $container = new FactoryDefault();
-$container->set('dispatcher', function () {
+$container->set('eventsManager', function() {
+    $eventsManager = new EventsManager();
+    $eventsManager->attach('dispatch', new ResponseConverter());
+    return $eventsManager;
+});
+$container->set('dispatcher', function () use ($container) {
     $dispatcher = new MvcDispatcher();
+    $dispatcher->setEventsManager($container->get('eventsManager'));
     $dispatcher->setDefaultNamespace('PhalconAdapters\Assets\Controller');
     return $dispatcher;
 });
