@@ -1,0 +1,49 @@
+{
+  "name": "talentify/phalcon-psr-adapters",
+  "description": "Provides adapters in order to use PSR interfaces with Phalcon.",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/Talentify/phalcon-psr-adapters",
+  "keywords": [
+    "phalcon",
+    "PSR",
+    "adapter"
+  ],
+  "require": {
+    "php": "^7.1.0",
+    "psr/container": "^1.0",
+    "psr/http-factory": "^1.0",
+    "psr/http-message": "^1.0"
+  },
+  "require-dev": {
+    "phalcon/ide-stubs": "^3.4",
+    "phpunit/phpunit": "^7.5",
+    "phpstan/phpstan": "^0.10.6",
+    "zendframework/zend-diactoros": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhalconAdapters\\": "src/PhalconAdapters"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhalconAdapters\\": "tests/PhalconAdapters"
+    }
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "phpunit": "phpunit",
+    "test": [
+      "@phpunit"
+    ]
+  },
+  "scripts-descriptions": {
+    "test": "Run tests"
+  }
+}
