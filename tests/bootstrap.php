@@ -13,11 +13,19 @@ use Phalcon\Mvc\Application as MvcApplication;
 use Phalcon\Mvc\Dispatcher as MvcDispatcher;
 use Phalcon\Cli\Console as CliApplication;
 use Phalcon\Cli\Dispatcher as CliDispatcher;
+use PhalconAdapters\Http\RequestConverter;
 use PhalconAdapters\Http\ResponseConverter;
+use Psr\Http\Message\ServerRequestInterface;
+use Zend\Diactoros\ServerRequestFactory;
 
 $container = new FactoryDefault();
+$container->set(ServerRequestInterface::class, function() {
+    return ServerRequestFactory::fromGlobals();
+});
+
 $container->set('eventsManager', function() {
     $eventsManager = new EventsManager();
+    $eventsManager->attach('dispatch', new RequestConverter());
     $eventsManager->attach('dispatch', new ResponseConverter());
     return $eventsManager;
 });

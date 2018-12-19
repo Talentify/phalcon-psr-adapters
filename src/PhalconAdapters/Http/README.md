@@ -25,20 +25,67 @@ Because of that we currently opted by using a
 (like [zend diactoros](https://docs.zendframework.com/zend-diactoros/))
 instead of using Phalcon's request.
 
+In order to pass Phalcon Dispatcher parameters to PSR `ServerRequestInterface` attributes you can do the following:
+```php
+<?php
+
+use PhalconAdapters\Http\RequestConverter;
+use Psr\Http\Message\ServerRequestInterface;
+use Zend\Diactoros\ServerRequestFactory;
+
+$container = new \Phalcon\Di\FactoryDefault();
+
+$container->set(ServerRequestInterface::class, function() {
+    return ServerRequestFactory::fromGlobals();
+});
+
+$container->set('eventsManager', function() {
+    $eventsManager = new \Phalcon\Events\Manager();
+    $eventsManager->attach('dispatch', new RequestConverter());
+    return $eventsManager;
+});
+
+$container->set('dispatcher', function () use ($container) {
+    $dispatcher = new \Phalcon\Mvc\Dispatcher();
+    $dispatcher->setEventsManager($container->get('eventsManager'));
+    return $dispatcher;
+});
+```
+
+And call you PSR-7 implementation like in:
+```php
+<?php
+
+use Psr\Http\Message\ServerRequestInterface;
+
+class IndexController extends \Phalcon\Mvc\Controller
+{
+    public function indexAction() : void
+    {
+        $request = $this->di->get(ServerRequestInterface::class);
+
+        var_dump($request->getAttributes());
+    }
+}
+
+```
+
 ### Response
 Currently there is an adapter to convert `Psr\Http\Message\ResponseInterface` to `Phalcon\Http\Response`.
 The easiest way to use it is registering a listener on your events manager, like this:
 ```php
 <?php
 
-use PhalconAdapters\Http\ResponseDispatcher;
+use PhalconAdapters\Http\ResponseConverter;
 
 $container = new \Phalcon\Di\FactoryDefault();
+
 $container->set('eventsManager', function() {
     $eventsManager = new \Phalcon\Events\Manager();
-    $eventsManager->attach('dispatch', new ResponseDispatcher());
+    $eventsManager->attach('dispatch', new ResponseConverter());
     return $eventsManager;
 });
+
 $container->set('dispatcher', function () use ($container) {
     $dispatcher = new \Phalcon\Mvc\Dispatcher();
     $dispatcher->setEventsManager($container->get('eventsManager'));
