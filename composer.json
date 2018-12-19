@@ -37,6 +37,7 @@
     },
     "sort-packages": true
   },
+  "minimum-stability": "dev",
   "scripts": {
     "phpunit": "phpunit",
     "test": [
