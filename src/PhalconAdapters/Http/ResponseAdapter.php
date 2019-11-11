@@ -17,9 +17,6 @@ use Psr\Http\Message\ResponseInterface;
  */
 class ResponseAdapter extends PhalconResponse
 {
-    /**
-     * @throws \InvalidArgumentException if response body is not a string.
-     */
     public function __construct(ResponseInterface $response)
     {
         parent::__construct();
@@ -30,21 +27,11 @@ class ResponseAdapter extends PhalconResponse
         $this->setStatusCode($response->getStatusCode(), $response->getReasonPhrase());
     }
 
-    /**
-     * @throws \InvalidArgumentException if response body is not a string.
-     */
     protected function convertBody(ResponseInterface $response) : void
     {
         $stream = $response->getBody();
-        $uri    = $stream->getMetadata('uri');
 
-        // If stream is a string https://www.php-fig.org/psr/psr-7/#13-streams
-        if(\in_array($uri, ['php://memory', 'php://temp'], true)) {
-            $this->setContent((string)$stream);
-            return;
-        }
-
-        throw new \InvalidArgumentException('Only strings are allowed as the response body.');
+        $this->setContent((string)$stream);
     }
 
     /**
