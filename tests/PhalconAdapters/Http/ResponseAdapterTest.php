@@ -22,20 +22,6 @@ class ResponseAdapterTest extends TestCase
         $this->assertEquals('Hello World!', $adapter->getContent());
     }
 
-    /**
-     * @test
-     */
-    public function shouldThrownExceptionIfBodyIsNotString() : void
-    {
-        $file = tmpfile();
-        fwrite($file, random_bytes(2048));
-        $stream = new Stream($file);
-        $response = new Response($stream);
-
-        $this->expectException(\InvalidArgumentException::class);
-        new ResponseAdapter($response);
-    }
-
     public function testGetHeaders() : void
     {
         $adapter = new ResponseAdapter($this->iHaveCommonPsrResponse());
