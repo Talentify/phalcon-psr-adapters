@@ -6,9 +6,9 @@ namespace PhalconAdapters\Http;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Zend\Diactoros\Response;
+use Laminas\Diactoros\Response;
 use Phalcon\Version;
-use Zend\Diactoros\Stream;
+use Laminas\Diactoros\Stream;
 
 class ResponseAdapterTest extends TestCase
 {

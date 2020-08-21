@@ -27,6 +27,8 @@ class ResponseConverter
             return;
         }
 
+        $dispatcher->getDI()->set(ResponseInterface::class, $response);
+
         try {
             $dispatcher->setReturnedValue(new ResponseAdapter($response));
         } catch (\InvalidArgumentException $e) {

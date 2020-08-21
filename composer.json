@@ -19,7 +19,7 @@
     "phalcon/ide-stubs": "^3.4",
     "phpunit/phpunit": "^7.5",
     "phpstan/phpstan": "^0.10.6",
-    "zendframework/zend-diactoros": "^2.0"
+    "laminas/laminas-diactoros": "^2.0"
   },
   "autoload": {
     "psr-4": {
@@ -39,7 +39,7 @@
   },
   "minimum-stability": "dev",
   "scripts": {
-    "phpunit": "phpunit",
+    "phpunit": "phpunit -v",
     "test": [
       "@phpunit"
     ]
