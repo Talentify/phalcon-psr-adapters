@@ -51,10 +51,4 @@ class ResponseAdapter extends PhalconResponse
 
         $this->setHeaders($headers);
     }
-
-    protected function convertCookies(ResponseInterface $response) : void
-    {
-        // #TODO
-//        $this->setCookies();
-    }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhalconAdapters\Assets\Controller;
 
-use Zend\Diactoros\Response;
+use Laminas\Diactoros\Response;
 
 class IndexController extends \Phalcon\Mvc\Controller
 {
@@ -12,7 +12,16 @@ class IndexController extends \Phalcon\Mvc\Controller
     {
         $response = new Response();
 
-        $response->getBody()->write('Hello World!');
+        $response->getBody()->write('Hello from the default controller.');
+
+        return $response;
+    }
+
+    public function route404Action() : Response
+    {
+        $response = new Response();
+
+        $response->getBody()->write('You route was not found by phalcon.');
 
         return $response;
     }
