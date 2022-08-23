@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42bfeacea672f55b55d0ea7d3f6cd0fd",
+    "content-hash": "4c6bdba1515fbd6a72c75dbd4572f813",
     "packages": [
         {
             "name": "psr/container",
@@ -1136,20 +1136,24 @@
         },
         {
             "name": "phalcon/ide-stubs",
-            "version": "v3.4.3",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phalcon/ide-stubs.git",
-                "reference": "65144f2b0fad32b182ccb062b1efc1b4edea5d44"
+                "reference": "77384e4f42542f11b065b2a860b9bca2ea20ad5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phalcon/ide-stubs/zipball/65144f2b0fad32b182ccb062b1efc1b4edea5d44",
-                "reference": "65144f2b0fad32b182ccb062b1efc1b4edea5d44",
+                "url": "https://api.github.com/repos/phalcon/ide-stubs/zipball/77384e4f42542f11b065b2a860b9bca2ea20ad5a",
+                "reference": "77384e4f42542f11b065b2a860b9bca2ea20ad5a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "3.*",
+                "vimeo/psalm": "^3.4"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -1159,8 +1163,8 @@
             "authors": [
                 {
                     "name": "Phalcon Team",
-                    "email": "team@phalconphp.com",
-                    "homepage": "https://phalconphp.com/en/team"
+                    "email": "team@phalcon.io",
+                    "homepage": "https://phalcon.io/en-us/team"
                 },
                 {
                     "name": "Contributors",
@@ -1168,7 +1172,7 @@
                 }
             ],
             "description": "The most complete Phalcon Framework IDE stubs library which enables autocompletion in modern IDEs.",
-            "homepage": "https://phalconphp.com",
+            "homepage": "https://phalcon.io",
             "keywords": [
                 "Devtools",
                 "Eclipse",
@@ -1180,7 +1184,22 @@
                 "stub",
                 "stubs"
             ],
-            "time": "2018-12-09T14:11:06+00:00"
+            "support": {
+                "forum": "https://forum.phalcon.io/",
+                "issues": "https://github.com/phalcon/ide-stubs/issues",
+                "source": "https://github.com/phalcon/ide-stubs"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/phalcon",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/phalcon",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-11-13T10:58:11+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -3103,5 +3122,6 @@
     "platform": {
         "php": "^7.1.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

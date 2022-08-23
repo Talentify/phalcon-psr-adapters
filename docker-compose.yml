@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  app:
+    image: talentify/flux:dev-upgrade
+    volumes:
+      - "./:/var/www"
+    environment:
+      PHP_IDE_CONFIG: "serverName=tflux.me"
+      XDEBUG_CONFIG: "idekey=PHPSTORM remote_host=host.docker.internal"
+    extra_hosts:
+      - "test.tflux.me:127.0.0.1"
+    restart: unless-stopped

@@ -16,10 +16,10 @@
     "psr/http-message": "^1.0"
   },
   "require-dev": {
-    "phalcon/ide-stubs": "^3.4",
-    "phpunit/phpunit": "^7.5",
+    "laminas/laminas-diactoros": "^2.0",
+    "phalcon/ide-stubs": "^4.1",
     "phpstan/phpstan": "^0.10.6",
-    "laminas/laminas-diactoros": "^2.0"
+    "phpunit/phpunit": "^7.5"
   },
   "autoload": {
     "psr-4": {
