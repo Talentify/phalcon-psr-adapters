@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhalconAdapters;
 
-class Container extends \Phalcon\Di
+class Container extends \Phalcon\Di\Di
 {
     /**
      * Returns the service only if it exists in the container.

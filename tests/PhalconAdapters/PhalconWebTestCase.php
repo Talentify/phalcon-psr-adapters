@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhalconAdapters;
 
-use Laminas\Diactoros\Response\JsonResponse;
 use Laminas\Diactoros\ServerRequestFactory;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Http\Request as PhalconRequest;
@@ -78,7 +77,7 @@ class PhalconWebTestCase extends PhalconTestCase
         });
     }
 
-    protected function runApplication(string $uri = null) : \Phalcon\Http\ResponseInterface
+    protected function runApplication(string $uri) : \Phalcon\Http\ResponseInterface
     {
         $dispatcher = $this->container->get('dispatcher');
         \assert($dispatcher instanceof Dispatcher);

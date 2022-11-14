@@ -17,7 +17,7 @@ class ResponseConverterTest extends PhalconWebTestCase
      */
     public function shouldTransformPsrResponseToPhalconResponse(): void
     {
-        $phalconResponse = $this->runApplication();
+        $phalconResponse = $this->runApplication('');
 
         $this->assertInstanceOf(ResponseAdapter::class, $phalconResponse);
         $this->assertEquals('You route was not found by phalcon.', $phalconResponse->getContent());

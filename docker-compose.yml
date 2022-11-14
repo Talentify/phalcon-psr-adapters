@@ -1,8 +1,11 @@
 version: '3.5'
 
 services:
+  image-builder:
+    build: ./
+    image: talentify/phalcon-psr-adapter:latest
   app:
-    image: talentify/flux:dev-upgrade
+    image: talentify/phalcon-psr-adapter:latest
     volumes:
       - "./:/var/www"
     environment:

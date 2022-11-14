@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace PhalconAdapters\Http;
 
+use Laminas\Diactoros\Response;
+use Phalcon\Support\Version;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Laminas\Diactoros\Response;
-use Phalcon\Version;
-use Laminas\Diactoros\Stream;
 
 class ResponseAdapterTest extends TestCase
 {
@@ -72,8 +71,8 @@ class ResponseAdapterTest extends TestCase
     private function getPhalconVersion() : int
     {
         return (int)(
-            Version::getPart(Version::VERSION_MAJOR) .
-            Version::getPart(Version::VERSION_MEDIUM)
+            (new Version())->getPart(Version::VERSION_MAJOR) .
+            (new Version())->getPart(Version::VERSION_MEDIUM)
         );
     }
 }

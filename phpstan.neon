@@ -1,0 +1,8 @@
+parameters:
+  parallel:
+    maximumNumberOfProcesses: 4
+  level: max
+  paths:
+    - src/
+  scanDirectories:
+    - %currentWorkingDirectory%/vendor/phalcon/ide-stubs/src
