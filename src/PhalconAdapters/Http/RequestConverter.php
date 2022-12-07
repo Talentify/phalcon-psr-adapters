@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhalconAdapters\Http;
 
-use Phalcon\Dispatcher;
+use Phalcon\Dispatcher\AbstractDispatcher;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher\Exception as DispatcherException;
 use Psr\Http\Message\ServerRequestInterface;
@@ -18,7 +18,7 @@ class RequestConverter
      * This is executed if the event triggered is 'beforeDispatchLoop'.
      * @throws \Phalcon\Mvc\Dispatcher\Exception
      */
-    public function beforeDispatchLoop(Event $event, Dispatcher $dispatcher) : void
+    public function beforeDispatchLoop(Event $event, AbstractDispatcher $dispatcher) : void
     {
         $container = $dispatcher->getDI();
 
