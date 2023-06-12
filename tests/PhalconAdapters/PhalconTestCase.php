@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhalconAdapters;
 
-use Phalcon\Di;
+use Phalcon\Di\Di;
 use PHPUnit\Framework\TestCase;
 
 class PhalconTestCase extends TestCase
