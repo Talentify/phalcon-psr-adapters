@@ -29,7 +29,7 @@ class RequestConverter
 
         \assert($serverRequest instanceof ServerRequestInterface);
         foreach ($dispatcher->getParams() as $name => $value) {
-            $serverRequest = $serverRequest->withAttribute($name, $value);
+            $serverRequest = $serverRequest->withAttribute((string)$name, $value);
         }
 
         $container->set(ServerRequestInterface::class, $serverRequest);
