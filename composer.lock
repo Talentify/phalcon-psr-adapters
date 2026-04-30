@@ -392,16 +392,16 @@
         },
         {
             "name": "phalcon/ide-stubs",
-            "version": "v5.1.0",
+            "version": "v5.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phalcon/ide-stubs.git",
-                "reference": "409ec3ea7bba5bfd5af5a221dd59ad3de968e792"
+                "reference": "17317527f9ad1ca1305b62f8b606e2d30c0b7a45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phalcon/ide-stubs/zipball/409ec3ea7bba5bfd5af5a221dd59ad3de968e792",
-                "reference": "409ec3ea7bba5bfd5af5a221dd59ad3de968e792",
+                "url": "https://api.github.com/repos/phalcon/ide-stubs/zipball/17317527f9ad1ca1305b62f8b606e2d30c0b7a45",
+                "reference": "17317527f9ad1ca1305b62f8b606e2d30c0b7a45",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +455,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-11-02T03:55:40+00:00"
+            "time": "2026-04-29T21:57:19+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -2073,12 +2073,12 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
